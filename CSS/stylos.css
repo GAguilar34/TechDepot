@@ -21,33 +21,34 @@ header{
 
 #logo{
     order: 1; /*Ordena que elemento va primero*/
-    width: 100px; /*Modifica el ancho*/
+    width: 200px; /*Modifica el ancho*/
     height: 100px;/*Modifica el alto*/
 }
 
 .contentUser{
-    order: 3;
-    align-items: center;
-    display: flex; 
-    gap:10px;
+    order: 3;/*Ordena que elemento va primero*/
+    align-items: center; /*Acomoda los elementos en el eje contrario*/
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    gap:10px; /*Agregamos una separacion entre componentes*/
 }
 
 #cuenta{
-    width: 50px;
-    height: 50px;
+    width: 50px; /*Modifica el ancho*/
+    height: 50px; /*Modifica el alto*/
 }
 
 #btnIncioSesion{
-    background: none;
-    color: darkgrey;
-    border: none;
-    cursor: pointer;
-    text-decoration: underline;
+    background: none; /*Eliminamos cualquier color que rodee nuestro elemento*/
+    color: darkgrey; /*Modifica el color de los textos*/
+    font-weight: bold;
+    border: none; /*Eliminamos cualquier borde*/
+    cursor: pointer; /*Cambiamos el icono del cursor*/
+    text-decoration: underline; /*Dibujamos una linea debajo del boton*/
 }
 
 footer{
-    background-color:#1E3A8A; 
-    color:white;
+    background-color:#1E3A8A;  /*Modifica el color que esta alrededor de los componentes*/
+    color:white; /*Modifica el color de los textos*/
     text-align: center; /*Alinea el texto al centro*/
     align-items: center; /*Acomoda los elementos en el eje contrario*/
     justify-content: center; /*Acomoda los elementos en la misma dirección del flex*/
