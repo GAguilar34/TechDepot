@@ -1,0 +1,54 @@
+body{
+    background-color: white;/*Modifica el color que esta alrededor de los componentes*/
+    font-family: Arial, Helvetica, sans-serif; /*Modifica el tipo de letra*/
+    color: black; /*Modifica el color de los textos*/
+    padding: 0px; /*Agrega un margen interno*/
+    margin: 0px; /*Agrega un margen entre los componentes*/
+}
+
+header{
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    background-color:#1E3A8A; /*Modifica el color que esta alrededor de los componentes*/
+    color: white; /*Modifica el color de los textos*/
+    align-items: center; /*Acomoda los elementos en el eje contrario*/
+    justify-content: space-between; /*Acomoda los elementos en la misma dirección del flex*/
+}
+
+#Marca{
+    text-align: center;/*Alinea el texto al centro*/
+    order: 2; /*Ordena que elemento va primero*/
+}
+
+#logo{
+    order: 1; /*Ordena que elemento va primero*/
+    width: 100px; /*Modifica el ancho*/
+    height: 100px;/*Modifica el alto*/
+}
+
+.contentUser{
+    order: 3;
+    align-items: center;
+    display: flex; 
+    gap:10px;
+}
+
+#cuenta{
+    width: 50px;
+    height: 50px;
+}
+
+#btnIncioSesion{
+    background: none;
+    color: darkgrey;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+footer{
+    background-color:#1E3A8A; 
+    color:white;
+    text-align: center; /*Alinea el texto al centro*/
+    align-items: center; /*Acomoda los elementos en el eje contrario*/
+    justify-content: center; /*Acomoda los elementos en la misma dirección del flex*/
+}
