@@ -14,15 +14,23 @@ header{
     justify-content: space-between; /*Acomoda los elementos en la misma dirección del flex*/
 }
 
-#Marca{
-    text-align: center;/*Alinea el texto al centro*/
-    order: 2; /*Ordena que elemento va primero*/
-}
-
 #logo{
     order: 1; /*Ordena que elemento va primero*/
     width: 200px; /*Modifica el ancho*/
     height: 100px;/*Modifica el alto*/
+    margin-left: 10px;
+}
+
+.contentSearch{
+    order: 2; /*Ordena que elemento va primero*/
+    align-items: center; /*Acomoda los elementos en el eje contrario*/
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    gap:10px;
+}
+
+#search{
+    height: 20px;
+    width: 400px;
 }
 
 .contentUser{
@@ -39,11 +47,27 @@ header{
 
 #btnIncioSesion{
     background: none; /*Eliminamos cualquier color que rodee nuestro elemento*/
-    color: darkgrey; /*Modifica el color de los textos*/
-    font-weight: bold;
+    color: white; /*Modifica el color de los textos*/
+    font-weight: bold; /*Pone en negritas los textos*/
     border: none; /*Eliminamos cualquier borde*/
     cursor: pointer; /*Cambiamos el icono del cursor*/
     text-decoration: underline; /*Dibujamos una linea debajo del boton*/
+}
+
+.contentShopping{
+    order: 4;/*Ordena que elemento va primero*/
+    align-items: center; /*Acomoda los elementos en el eje contrario*/
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    gap:10px; /*Agregamos una separacion entre componentes*/
+    margin-right: 10px;
+}
+
+#btnCarrito{
+    background: none; /*Eliminamos cualquier color que rodee nuestro elemento*/
+    color: white; /*Modifica el color de los textos*/
+    font-weight: bold; /*Pone en negritas los textos*/
+    border: none; /*Eliminamos cualquier borde*/
+    cursor: pointer; /*Cambiamos el icono del cursor*/
 }
 
 footer{
