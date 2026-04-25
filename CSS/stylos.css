@@ -1,9 +1,12 @@
 body{
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    flex-direction: column; /*Acomoda los elementos en forma de columna*/
     background-color: white;/*Modifica el color que esta alrededor de los componentes*/
     font-family: Arial, Helvetica, sans-serif; /*Modifica el tipo de letra*/
     color: black; /*Modifica el color de los textos*/
     padding: 0px; /*Agrega un margen interno*/
     margin: 0px; /*Agrega un margen entre los componentes*/
+    min-height: 100vh;/* El body ocupa al menos toda la pantalla */
 }
 
 header{
@@ -18,7 +21,7 @@ header{
     order: 1; /*Ordena que elemento va primero*/
     width: 200px; /*Modifica el ancho*/
     height: 100px;/*Modifica el alto*/
-    margin-left: 10px;
+    margin-left: 10px; /*Agrega un margen de separacion a la izquierda*/
 }
 
 .contentSearch{
@@ -29,8 +32,8 @@ header{
 }
 
 #search{
-    height: 20px;
-    width: 400px;
+    height: 20px;/*Modifica el ancho*/
+    width: 400px;/*Modifica el alto*/
 }
 
 .contentUser{
@@ -59,7 +62,7 @@ header{
     align-items: center; /*Acomoda los elementos en el eje contrario*/
     display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
     gap:10px; /*Agregamos una separacion entre componentes*/
-    margin-right: 10px;
+    margin-right: 10px; /*Agregamos un margen de separacion del lado derecho*/
 }
 
 #btnCarrito{
@@ -70,7 +73,55 @@ header{
     cursor: pointer; /*Cambiamos el icono del cursor*/
 }
 
+.main-container{
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    flex:1;/*Ocupa el resto del espacio*/
+}
+
+.Menu{
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    flex-direction: column; /*Acomoda los elementos en forma de columna*/
+    align-items: flex-start; /*Acomoda los elementos en el eje contrario*/
+    border-right: 1px solid #E5E7EB; /*línea gris clara */
+    padding-right: 10px; /* espacio para que no quede pegado */
+}
+
+.Menu button{
+    background: none; /*Eliminamos cualquier color que rodee nuestro elemento*/
+    color: black; /*Modifica el color de los textos*/
+    border: none; /*Eliminamos cualquier borde*/
+    cursor: pointer; /*Cambiamos el icono del cursor*/ 
+}
+
+#contentCategorias{
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    flex-direction: column; /*Acomoda los elementos en forma de columna*/
+    gap:10px; /*Agregamos una separacion entre componentes*/
+}
+
+.contenidoPrincipal{
+    flex: 1; /*Ocupa el resto del espacio*/
+    padding: 20px; /*Agrega un margen interno*/
+}
+
+.contenidoPrincipal button{
+    background-color: white; /*Modificamos el color alrededor de nuestros componentes*/
+    color: black;  /*Modifica el color de los textos*/
+    cursor: pointer; /*Cambiamos el icono del cursor*/ 
+    border: 1px solid #E5E7EB; /*Modificamos el color del borde que rodea nuestro boton*/
+    border-radius: 10px; /*Modificamos el borde y lo volvemos redondeado*/
+    width: 120px; /*Modifica el ancho*/
+    height: 30px; /*Modifica el alto*/
+    margin-right: 10px; /*Agregamos un margen de separacion del lado derecho*/
+}
+
+.contenidoPrincipal button:hover{
+    background-color: #1E3A8A;
+    color: white;
+}
+
 footer{
+    margin-top: auto; /* Se empuja hasta abajo automáticamente */
     background-color:#1E3A8A;  /*Modifica el color que esta alrededor de los componentes*/
     color:white; /*Modifica el color de los textos*/
     text-align: center; /*Alinea el texto al centro*/
