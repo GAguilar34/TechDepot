@@ -116,8 +116,8 @@ header{
 }
 
 .contenidoPrincipal button:hover{
-    background-color: #1E3A8A;
-    color: white;
+    background-color: #1E3A8A; /*Modificamos el color alrededor de nuestros componentes*/
+    color: white; /*Modifica el color de los textos*/
 }
 
 footer{
