@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Formulario.css">
+</head>
+<div class="container"><!--incio de y contenedro del formulario-->
+    <!--inicio del registro formulario-->
+    <div id="form-registro">
+        <h2>Crear Cuenta</h2> <!--encabezado de registro-->
+        <form action="#" method="POST" id="formularioRegistro">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+            </div>
+             <div class="form-group">
+                <label for="Email">Correo electronico</label>
+                <input type="text" id="Email" name="Email" placeholder="Ej. ejemplo@gmail.com" required>
+            </div>
+            <div class="grid-row">
+                <div class="form-group">
+                    <label for="edad">Edad</label>
+                    <input type="text" id="edad" name="edad" placeholder="Ingresa tu edad" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Ingresa tu Contraseña" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipoUsuario">Tipo de usuario</label>
+                    <select id="tipoUsuario" name="tipoUsuario" required>
+                        <option value="">Seleccione una opcion...</option>
+                        <option value="cliente">Cliente</option>
+                        <option value="vendedor">Vendedor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Genero</label>
+                    <select id="genero" name="genero" required>
+                        <option value="">Seleccione una opcion...</option>
+                        <option value="hombre">Hombre</option>
+                        <option value="mujer">mujer</option>
+                        <option value="juan">Juan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="numeroCuenta">Numero de Cuenta</label>
+                    <input type="password" id="numeroCuenta" name="numeroCuenta" placeholder="Ingresa numero de cuenta "
+                        required>
+                </div>
+            </div>
+            <button type="submit">registrarse</button>
+        </form>
+         <div class="tabs">
+       <button class="tab-btn active" onclick="showform('login')"></button>
+    </div>
+          
+    </div>
+</div>
+
+</html>

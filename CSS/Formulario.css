@@ -1,0 +1,102 @@
+/* Estilos*/
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /*Asegura que el contenedor y el footer se apliquen verticalmente*/
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+.container{
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px; /* Ancho maximo para PC*/
+}
+h2{
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+/*Estilo para las pestañas*/
+.tabs{
+    display: flex;/*Los botones se colocan en fila*/
+    justify-content: center;/*Centrado horizontal*/
+    margin-bottom: 20px;/*Espacio debajo de las pestañas*/
+    border-bottom: 2px solid #eee;/*Linea inferior para separar*/
+}
+.tab-btn{
+    padding: 10 px 20px;/*Espacio interno*/
+    border: none;/*Sin borde*/
+    background: none;/*fondo transparente*/
+    cursor: pointer; /*cursor tipo mano*/
+    font-size: 16px;/*Tamaño de letra */
+    font-weight: bold;/*Texto en negritas*/
+    color: #888;/*Color de texto*/
+    transition: 0.3s;/*Animacion suave en cambios*/
+}
+.tab-btn.active{
+    color: #4A90E2;/*Azul cuando esta acivo*/
+    border-bottom: 3px solid #4A90E2;/*linea azul debajo del boton activo*/
+}
+
+
+/*Clase para ocultar formulario*/
+.hidden{
+    display: none;/*No se muestra en pantalla*/
+}
+
+.form-group{
+    margin-bottom:  15px;
+    display: flex;
+    flex-direction: column;
+}
+label{
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+input, select{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+input:focus, select:focus{
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 5p rgba(74, 144, 226, 0.3);
+}
+/*Boton de envio*/
+button{
+    width: 100%;
+    padding: 12px;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius:  6px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+button:hover{
+    background-color: #357ABD;
+}
+/*Estilos para el footer*/
+footer{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    color: #777;
+    font-size: 14px;
+}
+footer p{
+    margin: 0;
+}
