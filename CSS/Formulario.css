@@ -1,4 +1,4 @@
-/* Estilos*/
+/*Estilos Base*/
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f6;
@@ -22,6 +22,11 @@ h2{
     text-align: center;
     color: #333;
     margin-bottom: 25px;
+}
+p{
+text-align: center;
+color: #333;
+margin: 10px;
 }
 /*Estilo para las pestañas*/
 .tabs{
@@ -99,4 +104,13 @@ footer{
 }
 footer p{
     margin: 0;
+}
+/*Diseño responsivo (Media Queries)*/
+@media (min-width: 768px){
+    /*En pantalla grandes, algunos campos pueden ir en dos columnas*/
+    .grid-row{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px ;
+    }
 }

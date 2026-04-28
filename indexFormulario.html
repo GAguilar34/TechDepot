@@ -6,58 +6,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/Formulario.css">
 </head>
-<div class="container"><!--incio de y contenedro del formulario-->
-    <!--inicio del registro formulario-->
-    <div id="form-registro">
-        <h2>Crear Cuenta</h2> <!--encabezado de registro-->
-        <form action="#" method="POST" id="formularioRegistro">
-            <div class="form-group">
-                <label for="nombre">Nombre Completo</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
-            </div>
-             <div class="form-group">
-                <label for="Email">Correo electronico</label>
-                <input type="text" id="Email" name="Email" placeholder="Ej. ejemplo@gmail.com" required>
-            </div>
-            <div class="grid-row">
+
+<body>
+    <script>
+        //Funcion que alterna entre mostra el formulario de registro o del login
+        function showForm(tipo) {
+            //obtener los contenedores de los formularios
+            const formRegistro = document.getElementById('form-registro');
+            const formLogin = document.getElementById('form-login');
+            //obneter los botones de pestañas
+            const botones = document.querySelectorAll('.tab-btn');
+            //Si el usuario selecciona registro
+            if (tipo == 'registro') {
+                formRegistro.classList.remove('hidden');//Muestra el formulario eliminando el hidden
+                formLogin.classList.add('hidden');//Le agregamos el hidden a login
+                botones[0].classList.add('active');//marca el boton de registro como activo
+                botones[1].classList.remove('active');//desactiva el botton del login
+
+            } else {
+                //si selecciona login
+                formRegistro.classList.add('hidden');//oculta el formulario de registro
+                formLogin.classList.remove('hidden');//muestra el formulario del login
+                botones[0].classList.remove('active');//desactiva el boton de registro
+                botones[1].classList.add('active');//marca el boton del login como avtivo
+            }
+        }
+    </script>
+    <div class="container"><!--incio de y contenedro del formulario-->
+        <!--inicio del registro formulario-->
+        <div id="form-registro">
+            <h2>Crear Cuenta</h2> <!--encabezado de registro-->
+            <form action="#" method="POST" id="formularioRegistro">
                 <div class="form-group">
-                    <label for="edad">Edad</label>
-                    <input type="text" id="edad" name="edad" placeholder="Ingresa tu edad" required>
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password" placeholder="Ingresa tu Contraseña" required>
+                    <label for="Email">Correo electronico</label>
+                    <input type="text" id="Email" name="Email" placeholder="Ej. ejemplo@gmail.com" required>
+                </div>
+                <div class="grid-row">
+                    <div class="form-group">
+                        <label for="edad">Edad</label>
+                        <input type="text" id="edad" name="edad" placeholder="Ingresa tu edad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="Ingresa tu Contraseña"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoUsuario">Tipo de usuario</label>
+                        <select id="tipoUsuario" name="tipoUsuario" required>
+                            <option value="">Seleccione una opcion...</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="vendedor">Vendedor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="genero">Genero</label>
+                        <select id="genero" name="genero" required>
+                            <option value="">Seleccione una opcion...</option>
+                            <option value="hombre">Hombre</option>
+                            <option value="mujer">mujer</option>
+                            <option value="juan">Juan</option>
+                             <option value="helicopteroapache">Helicoptero apache</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroCuenta">Numero de Cuenta</label>
+                        <input type="password" id="numeroCuenta" name="numeroCuenta"
+                            placeholder="Ingresa numero de cuenta " required>
+                    </div>
+                </div>
+                <button type="submit">registrarse</button>
+
+                <div class="tabs">
+                        <p>¿Ya estas registrado?</p><button class="tab-btn active" onclick="showForm('login')">¿Iniciar sesion?</button>
+                    </div>
+            </form>
+        </div>
+        <div id="form-login" class="hidden">
+            <h2>Iniciar sesion</h2>
+            <form action="#" method="POST" id="formularioLogin">
+                <div class="form-group">
+                    <label for="login-nickname">nombre</label>
+                    <input type="text" id="login-password" name="nickname" required>
                 </div>
                 <div class="form-group">
-                    <label for="tipoUsuario">Tipo de usuario</label>
-                    <select id="tipoUsuario" name="tipoUsuario" required>
-                        <option value="">Seleccione una opcion...</option>
-                        <option value="cliente">Cliente</option>
-                        <option value="vendedor">Vendedor</option>
-                    </select>
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" name="password" required>
                 </div>
-                <div class="form-group">
-                    <label for="genero">Genero</label>
-                    <select id="genero" name="genero" required>
-                        <option value="">Seleccione una opcion...</option>
-                        <option value="hombre">Hombre</option>
-                        <option value="mujer">mujer</option>
-                        <option value="juan">Juan</option>
-                    </select>
+                <button type="submit">Iniciaer sesion</button>
+                 <div class="tabs">
+            <p>¿No tienes una cunta?</p><button class="tab-btn active" onclick="showForm('registro')">Registrar Cuenta</button>
                 </div>
-                <div class="form-group">
-                    <label for="numeroCuenta">Numero de Cuenta</label>
-                    <input type="password" id="numeroCuenta" name="numeroCuenta" placeholder="Ingresa numero de cuenta "
-                        required>
-                </div>
-            </div>
-            <button type="submit">registrarse</button>
-        </form>
-         <div class="tabs">
-       <button class="tab-btn active" onclick="showform('login')"></button>
+            </form>
+        </div>
     </div>
-          
-    </div>
-</div>
+    <footer>
+        <p>&copy; Derechos Reservados a TechDepot</p>
+        <p>&copy; Jose Gerardo Aguilar Sanchez</p>
+        <p>&copy; Dylan Uziel Guzman Pantoja</p>
+        <p>&copy; Andres Maximiliano Arellano Mendoza</p>
+        <p>&copy; William Francisco Acosta Pasual</p>
+    </footer>
+</body>
 
 </html>
