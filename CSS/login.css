@@ -1,0 +1,128 @@
+/* Estilos*/
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /*Asegura que el contenedor y el footer se apliquen verticalmente*/
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.container{
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px; /* Ancho maximo para PC*/
+}
+
+h2{
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/*Estilo para las pestañas*/
+.tabs{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column; /*Asegura que el contenedor y el footer se apliquen verticalmente*/
+    justify-content:center;/*Centrado horizontal*/
+    margin-bottom: 20px;/*Espacio debajo de las pestañas*/
+    border-bottom: 2px solid #eee;/*Linea inferior para separar*/
+}
+
+.tab-btn{
+    padding: 10px 20px;/*Espacio interno*/
+    border: none;/*Sin borde*/
+    background: none;/*fondo transparente*/
+    cursor: pointer; /*cursor tipo mano*/
+    font-size: 16px;/*Tamaño de letra */
+    font-weight: bold;/*Texto en negritas*/
+    transition: 0.3s;/*Animacion suave en cambios*/
+}
+
+.tab-btn.active{
+    color: #4A90E2;/*Azul cuando esta acivo*/
+}
+
+
+/*Clase para ocultar formulario*/
+.hidden{
+    display: none;/*No se muestra en pantalla*/
+}
+
+.form-group{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+input, select{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+input:focus, select:focus{
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 5p rgba(74, 144, 226, 0.3);
+}
+
+/*Boton de envio*/
+button{
+    padding: 10px 20px;/*Espacio interno*/
+    border: none;/*Sin borde*/
+    background: none;/*fondo transparente*/
+    cursor: pointer; /*cursor tipo mano*/
+    font-size: 16px;/*Tamaño de letra */
+    font-weight: bold;/*Texto en negritas*/
+    color: #4A90E2;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#btnRegistro{
+    background-color: #4A90E2;
+    font-size: 18px;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer; 
+}
+
+#btnInicioSesion{
+    background-color: #4A90E2;
+    font-size: 18px;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer; 
+}
+
+/*Estilos para el footer*/
+footer{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    color: #777;
+    font-size: 14px;
+}
+
+footer p{
+    margin: 0;
+}
