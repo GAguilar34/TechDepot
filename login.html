@@ -6,88 +6,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/login.css">
 </head>
-<div class="container"><!--incio de y contenedro del formulario-->
-    <!--inicio del registro formulario-->
-    <div id="form-registro">
-        <h2>Crear Cuenta</h2> <!--encabezado de registro-->
-        <form action="#" method="POST" id="formularioRegistro">
-            <div class="form-group">
-                <label for="nombre">Nombre Completo</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+
+<body>
+    <div class="container"><!--incio de y contenedro del formulario-->
+        <!--inicio del registro formulario-->
+        <div id="form-registro">
+            <h2>Crear Cuenta</h2> <!--encabezado de registro-->
+            <form action="#" method="POST" id="formularioRegistro">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="registroEmail">Correo electronico</label>
+                    <input type="email" id="registroEmail" name="registroEmail" placeholder="Ej. ejemplo@gmail.com" required>
+                </div>
+                <div class="grid-row">
+                    <div class="form-group">
+                        <label for="edad">Edad</label>
+                        <input type="number" id="edad" name="edad" placeholder="Ingresa tu edad" min="18" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registroPassword">Contrase&ntilde;a</label>
+                        <input type="password" id="registroPassword" name="registroPassword" placeholder="Ingresa tu contrase&ntilde;a" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoUsuario">Tipo de usuario</label>
+                        <select id="tipoUsuario" name="tipoUsuario" required>
+                            <option value="">Seleccione una opcion...</option>
+                            <option value="CLIENTE">Cliente</option>
+                            <option value="VENDEDOR">Vendedor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="genero">Genero</label>
+                        <select id="genero" name="genero" required>
+                            <option value="">Seleccione una opcion...</option>
+                            <option value="Hombre">Hombre</option>
+                            <option value="Mujer">Mujer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Telefono</label>
+                        <input type="text" id="telefono" name="telefono" placeholder="Ingresa tu telefono" minlength="10" maxlength="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroCuenta">Numero de Cuenta</label>
+                        <input type="text" id="numeroCuenta" name="numeroCuenta" placeholder="Solo vendedores">
+                    </div>
+                </div>
+            </form>
+            <div class="tabs">
+                <button type="submit" form="formularioRegistro">Registrarse</button>
+                <p>&iquest;Ya tienes una cuenta?</p>
+                <button type="button" class="tab-btn active" onclick="toggleForms()">Iniciar Sesion</button>
             </div>
-            <div class="form-group">
-                <label for="Email">Correo electronico</label>
-                <input type="text" id="Email" name="Email" placeholder="Ej. ejemplo@gmail.com" required>
-            </div>
-            <div class="grid-row">
-                <div class="form-group">
-                    <label for="edad">Edad</label>
-                    <input type="text" id="edad" name="edad" placeholder="Ingresa tu edad" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password" placeholder="Ingresa tu Contraseña" required>
-                </div>
-                <div class="form-group">
-                    <label for="tipoUsuario">Tipo de usuario</label>
-                    <select id="tipoUsuario" name="tipoUsuario" required>
-                        <option value="">Seleccione una opcion...</option>
-                        <option value="cliente">Cliente</option>
-                        <option value="vendedor">Vendedor</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="genero">Genero</label>
-                    <select id="genero" name="genero" required>
-                        <option value="">Seleccione una opcion...</option>
-                        <option value="hombre">Hombre</option>
-                        <option value="mujer">Mujer</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="numeroCuenta">Numero de Cuenta</label>
-                    <input type="password" id="numeroCuenta" name="numeroCuenta" placeholder="Ingresa numero de cuenta "
-                        required>
-                </div>
-            </div>
-        </form>
-        <div class="tabs">
-            <button id = "btnRegistro">Registrarse</button>
-            <p>¿Aun no tienes una cuenta?</p>
-            <button class="tab-btn active" onclick="toggleForms()">Iniciar Sesion</button>
         </div>
 
+        <div id="form-login" class="hidden">
+            <h2>Iniciar Sesion</h2>
+            <form action="#" method="POST" id="formularioInicioSesion">
+                <div class="form-group">
+                    <label for="loginEmail">Correo electronico</label>
+                    <input type="email" id="loginEmail" name="Email" placeholder="Ej. ejemplo@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Contrase&ntilde;a</label>
+                    <input type="password" id="loginPassword" name="password" placeholder="Ingresa tu contrase&ntilde;a" required>
+                </div>
+                <div class="tabs">
+                    <button type="submit">Iniciar Sesion</button>
+                    <p>&iquest;Aun no tienes una cuenta?</p>
+                    <button type="button" onclick="toggleForms()">Registrarse</button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <div id="form-login" class="hidden">
-        <h2>Inciar Sesion</h2>
-        <form action="#" method="POST" id="formularioInicioSesion">
-            <div class="form-group">
-                <label for="Email">Correo electronico</label>
-                <input type="text" id="Email" name="Email" placeholder="Ej. ejemplo@gmail.com" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Contraseña</label>
-                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-            </div>
-            <div class="tabs">
-                <button id = "btnInicioSesion">Inciar Sesion</button>
-                <p>¿Aun no tienes una cuenta?</p>
-                <button id="tabRegistro" onclick="toggleForms()">Registrarse</button>
-            </div>
-        </form>
-    </div>
-</div>
+    <script>
+        function toggleForms() {
+            const loginForm = document.getElementById('form-login');
+            const registroForm = document.getElementById('form-registro');
 
-<script>
-    function toggleForms() {
-        const loginForm = document.getElementById('form-login');
-        const registroForm = document.getElementById('form-registro');
-
-        // Intercambiamos la clase hidden entre ambos
-        loginForm.classList.toggle('hidden');
-        registroForm.classList.toggle('hidden');
-    }
-</script>
+            loginForm.classList.toggle('hidden');
+            registroForm.classList.toggle('hidden');
+        }
+    </script>
+    <script src="js/api.js"></script>
+    <script src="js/login.js"></script>
+</body>
 
 </html>
