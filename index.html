@@ -31,29 +31,39 @@
 
     <div class="main-container">
         <aside class="Menu">
-            <div id="menu-item">
+            <div class="menu-item">
                 <img id="homeImg" src="images/home.png">
                 <button id="home">Incio</button>
             </div>
 
-            <div id="menu-item">
+            <div class="menu-item">
                 <img id="carritoImg" src="images/carrito2.png">
                 <button id="btnCarrito2">Carrito</button>
             </div>
 
-            <div id="menu-item">
+            <div class="menu-item">
                 <img id="sellImg" src="images/sell.png">
                 <button id="btnSell">Ventas</button>
             </div>
 
-            <div id="menu-item">
+            <div class="menu-item">
                 <img id="favoriteImg" src="images/favorite.png">
                 <button id="btnFavorite">Favoritos</button>
             </div>
 
-            <div id="menu-item">
+            <div class="menu-item">
                 <img id="comprasImg" src="images/compras.png">
                 <button id="btnCompras">Mis Compras</button>
+            </div>
+
+            <div class = "menu-item">
+                <img id = "agregarProducto" src="images/AgregarProducto.png">
+                <button id="btnAgregarProducto">Agregar Producto</button>
+            </div>
+
+            <div class = "menu-item">
+                <img id = "cerrarSesion" src = "images/cerrarSesion.png">
+                <button id="btnCerraSesion">Cerrar Sesion</button>
             </div>
 
             <div id="contentCategorias">
@@ -92,7 +102,10 @@
         <p>&copy; Andres Maximiliano Arellano Mendoza</p>
         <p>&copy; William Francisco Acosta Pasual</p>
     </footer>
-<script src="js/main.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script> verificarSesion();</script>
 </body>
 
 </html>

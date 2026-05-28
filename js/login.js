@@ -17,12 +17,12 @@ async function registrarse(event) {
     };
 
     try {
-        const createdCustomer = await apiRequest('/customers', {
+        const createdCustomer = await apiRequest('/customers', { //enviamos los datos al backend en JSON
             method: 'POST',
             body: JSON.stringify(customer),
         });
 
-        localStorage.setItem('customer', JSON.stringify(createdCustomer));
+        sessionStorage.setItem('customer', JSON.stringify(createdCustomer)); //Mantenemos la sesion iniciada mientra estemos en la pagina 
         alert('Cuenta creada correctamente.');
         window.location.href = 'index.html';
     } catch (error) {
@@ -35,18 +35,19 @@ async function iniciarSesion(event) {
         event.preventDefault();
     }
 
+    //Obtenemos los datos del login
     const credentials = {
         email: document.getElementById('loginEmail').value.trim(),
         password: document.getElementById('loginPassword').value,
     };
 
     try {
-        const customer = await apiRequest('/customers/login', {
+        const customer = await apiRequest('/customers/login', { //Enviamos esos datos al backend para que los valide
             method: 'POST',
             body: JSON.stringify(credentials),
         });
 
-        localStorage.setItem('customer', JSON.stringify(customer));
+        sessionStorage.setItem('customer', JSON.stringify(customer)); //Mantenemos la sesion iniciada mientra estemos en la pagina 
         alert('Inicio de sesion correcto.');
         window.location.href = 'index.html';
     } catch (error) {
