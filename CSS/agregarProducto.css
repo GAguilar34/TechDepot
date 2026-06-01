@@ -1,0 +1,103 @@
+body{
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+p{
+  color: #333;   
+}
+
+.container{
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px; 
+}
+
+.form-group{
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+textarea{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+label{
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input, select{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+textarea:focus, input:focus, select:focus{
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 5p rgba(74, 144, 226, 0.3);
+}
+
+.form-estado{
+    margin-bottom: 25px;
+}
+
+.form-image{
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btnAgregar{
+    margin-left: 30px;
+    margin-right: 30px;
+    background: #333;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+#btnCancelar{
+    margin-left: 30px;
+    margin-right: 30px;
+    background: #333;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 20px;
+    border-radius: 12px;
+}

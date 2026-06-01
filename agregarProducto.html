@@ -1,14 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/agregarProducto.css">
     <title>Agregar Productos</title>
 </head>
+
 <body>
     <header>
         <h1>Agregar Producto</h1>
-        
+        <p>Completa todos los campos</p>
     </header>
+
+    <section>
+        <div class="container">
+            <form action="#" method="POST" id="formProduct">
+                <div class="form-group">
+                    <label for="nombreProducto">Nombre del Producto</label>
+                    <input type="text" id="nombreProducto" name="nombreProducto" placeholder="Nombre Producto" required
+                        autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="Descripcion">Descripcion</label>
+                    <textarea type="text" id="descripcion" name="descripcion" placeholder="Descripcion" required
+                        autocomplete="name"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="Categoria">Categoria</label>
+                    <select id="categoria" name="categoria" required autocomplete="off">
+                        <option value="">Seleccione una opcion...</option>
+                        <option value="PROCESADOR">Procesador</option>
+                        <option value="TARJETA DE VIDEO">Tarjeta de Video</option>
+                        <option value="MEMORIA RAM">Memoria Ram</option>
+                        <option value="MEMORIA ROM">Memoria Rom</option>
+                        <option value="GABINETE">Gabinete</option>
+                        <option value="FUENTE DE PODER">Fuente de Poder</option>
+                        <option value="MOTHERBOARD">Motherboard</option>
+                        <option value="REFRIGERACION">Refrigeracion</option>
+                        <option value="PERIFERICOS">Perifericos</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Precio">Precio</label>
+                    <input type="text" id="precio" name="precio" placeholder="$60" required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="Cantidad">Stock Disponible</label>
+                    <input type="text" id="cantidad" name="cantidad" placeholder="5" required autocomplete="name">
+                </div>
+
+                <div class="form-estado">
+                    <label for="Estado">Estado</label>
+                </div>    
+
+                <div class="form-estado">
+                    <input type="radio" name="estado" id="estado-nuevo" value="Nuevo" checked>
+                    <label for="estado-nuevo">Nuevo</label>
+
+                    <input type="radio" name="estado" id="estado-usado" value="Usado">
+                    <label for="estado-usado">Usado</label>
+                </div>
+
+                <div class="form-image">
+                    <label for="Imagen">Imagen</label>
+                    <input type="file" id="subir-imagen" class="input-file-real" accept="image/*">
+                </div>
+                
+                <div class="form-button">
+                    <button id = "btnCancelar">Cancelar</button>
+                    <button id = "btnAgregar">Agregar</button>
+                </div>
+            </form>
+        </div>
+    </section>
 </body>
+
 </html>
