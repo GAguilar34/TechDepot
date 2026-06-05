@@ -3,9 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="CSS/agregarProducto.css">
+    <title>Agregar Productos</title>
+    <style>
+        .drop-zone {
+            border: 2px dashed #1E3A8A;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            color: #6B7280;
+            transition: background 0.2s;
+        }
+        .drop-zone.dragover {
+            background-color: #EFF6FF;
+            border-color: #1e40af;
+        }
+        .previews {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .preview-item {
+            position: relative;
+            width: 90px;
+            height: 90px;
+        }
+        .preview-item img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+        }
+        .preview-item button {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #EF4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            font-size: 12px;
+            line-height: 1;
+        }
+        #contadorImagenes {
+            font-size: 13px;
+            color: #6B7280;
+            margin-top: 6px;
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <h1>Agregar Producto</h1>
+        <p>Completa todos los campos</p>
+    </header>
+
+    <section>
+        <div class="container">
+            <form action="#" method="POST" id="formProduct">
+                <div class="form-group">
+                    <label for="nombreProducto">Nombre del Producto</label><br>
+                    <input type="text" id="nombreProducto" name="nombreProducto" placeholder="Nombre Producto" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label><br>
+                    <textarea id="descripcion" name="descripcion" placeholder="Descripción" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoría</label><br>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">Seleccione una opción...</option>
+                        <option value="PROCESADOR">Procesador</option>
+                        <option value="TARJETA DE VIDEO">Tarjeta de Video</option>
+                        <option value="MEMORIA RAM">Memoria Ram</option>
+                        <option value="MEMORIA ROM">Memoria Rom</option>
+                        <option value="GABINETE">Gabinete</option>
+                        <option value="FUENTE DE PODER">Fuente de Poder</option>
+                        <option value="MOTHERBOARD">Motherboard</option>
+                        <option value="REFRIGERACION">Refrigeración</option>
+                        <option value="PERIFERICOS">Periféricos</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="precio">Precio</label><br>
+                    <input type="number" id="precio" name="precio" placeholder="60" required min="0" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label for="cantidad">Stock Disponible</label><br>
+                    <input type="number" id="cantidad" name="cantidad" placeholder="5" required min="0">
+                </div>
+
+                <div class="form-estado">
+                    <label>Estado</label>
+                </div>
+                <div class="form-estado">
+                    <input type="radio" name="estado" id="estado-nuevo" value="Nuevo" checked>
+                    <label for="estado-nuevo">Nuevo</label>
+                    <input type="radio" name="estado" id="estado-usado" value="Usado">
+                    <label for="estado-usado">Usado</label>
+                </div>
+
+                <div class="form-group">
+                    <label>Imágenes del producto (máximo 20)</label>
+                    <div class="drop-zone" id="dropZone">
+                        <p>📁 Arrastra tus imágenes aquí o haz clic para seleccionar</p>
+                        <input type="file" id="inputImagenes" accept="image/*" multiple style="display:none">
+                    </div>
+                    <p id="contadorImagenes">0 / 20 imágenes</p>
+                    <div class="previews" id="previews"></div>
+                </div>
+
+                <div class="form-button">
+                    <button type="button" id="btnCancelar" onclick="history.back()">Cancelar</button>
+                    <button type="submit" id="btnAgregar">Agregar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="js/api.js"></script>
+    <script src="js/agregarProducto.js"></script>
 </body>
 </html>
