@@ -1,0 +1,317 @@
+body{
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    flex-direction: column; /*Acomoda los elementos en forma de columna*/
+    background-color: white;/*Modifica el color que esta alrededor de los componentes*/
+    font-family: Arial, Helvetica, sans-serif; /*Modifica el tipo de letra*/
+    color: black; /*Modifica el color de los textos*/
+    padding: 0px; /*Agrega un margen interno*/
+    margin: 0px; /*Agrega un margen entre los componentes*/
+    min-height: 100vh;/* El body ocupa al menos toda la pantalla */
+}
+
+header{
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    background-color:#1E3A8A; /*Modifica el color que esta alrededor de los componentes*/
+    color: white; /*Modifica el color de los textos*/
+    align-items: center; /*Acomoda los elementos en el eje contrario*/
+    justify-content: space-between; /*Acomoda los elementos en la misma dirección del flex*/
+}
+
+#logo{
+    order: 1; /*Ordena que elemento va primero*/
+    width: 200px; /*Modifica el ancho*/
+    height: 100px;/*Modifica el alto*/
+    margin-left: 10px; /*Agrega un margen de separacion a la izquierda*/
+}
+
+.contentSearch{
+    order: 2; /*Ordena que elemento va primero*/
+    align-items: center; /*Acomoda los elementos en el eje contrario*/
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    gap:10px;
+}
+
+#search{
+    height: 20px;/*Modifica el ancho*/
+    width: 400px;/*Modifica el alto*/
+}
+
+.contentUser{
+    order: 3;/*Ordena que elemento va primero*/
+    align-items: center; /*Acomoda los elementos en el eje contrario*/
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    gap:10px; /*Agregamos una separacion entre componentes*/
+}
+
+#cuenta{
+    width: 50px; /*Modifica el ancho*/
+    height: 50px; /*Modifica el alto*/
+}
+
+#btnIncioSesion{
+    background: none; /*Eliminamos cualquier color que rodee nuestro elemento*/
+    color: white; /*Modifica el color de los textos*/
+    font-weight: bold; /*Pone en negritas los textos*/
+    border: none; /*Eliminamos cualquier borde*/
+    cursor: pointer; /*Cambiamos el icono del cursor*/
+    text-decoration: underline; /*Dibujamos una linea debajo del boton*/
+}
+
+.contentShopping{
+    order: 4;/*Ordena que elemento va primero*/
+    align-items: center; /*Acomoda los elementos en el eje contrario*/
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    gap:10px; /*Agregamos una separacion entre componentes*/
+    margin-right: 10px; /*Agregamos un margen de separacion del lado derecho*/
+}
+
+#btnCarrito{
+    background: none; /*Eliminamos cualquier color que rodee nuestro elemento*/
+    color: white; /*Modifica el color de los textos*/
+    font-weight: bold; /*Pone en negritas los textos*/
+    border: none; /*Eliminamos cualquier borde*/
+    cursor: pointer; /*Cambiamos el icono del cursor*/
+}
+
+.main-container{
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    flex:1;/*Ocupa el resto del espacio*/
+}
+
+.Menu{
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    flex-direction: column; /*Acomoda los elementos en forma de columna*/
+    align-items: flex-start; /*Acomoda los elementos en el eje contrario*/
+    border-right: 1px solid #E5E7EB; /*línea gris clara */
+    padding-right: 10px; /* espacio para que no quede pegado */
+}
+
+.Menu button{
+    background: none; /*Eliminamos cualquier color que rodee nuestro elemento*/
+    color: black; /*Modifica el color de los textos*/
+    border: none; /*Eliminamos cualquier borde*/
+    cursor: pointer; /*Cambiamos el icono del cursor*/ 
+}
+
+#contentCategorias{
+    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
+    flex-direction: column; /*Acomoda los elementos en forma de columna*/
+    gap:10px; /*Agregamos una separacion entre componentes*/
+}
+
+.contenidoPrincipal{
+    flex: 1; /*Ocupa el resto del espacio*/
+    padding: 20px; /*Agrega un margen interno*/
+}
+
+.contenidoPrincipal button{
+    background-color: white; /*Modificamos el color alrededor de nuestros componentes*/
+    color: black;  /*Modifica el color de los textos*/
+    cursor: pointer; /*Cambiamos el icono del cursor*/ 
+    border: 1px solid #E5E7EB; /*Modificamos el color del borde que rodea nuestro boton*/
+    border-radius: 10px; /*Modificamos el borde y lo volvemos redondeado*/
+    width: 120px; /*Modifica el ancho*/
+    height: 30px; /*Modifica el alto*/
+    margin-right: 10px; /*Agregamos un margen de separacion del lado derecho*/
+}
+
+.contenidoPrincipal button:hover{
+    background-color: #1E3A8A;
+    color: white;
+}
+
+footer {
+    margin-top: auto; /* Se empuja hasta abajo automáticamente */
+    background-color: #1E3A8A;  /*Modifica el color que esta alrededor de los componentes*/
+    color: white; /*Modifica el color de los textos*/
+    text-align: center; /*Alinea el texto al centro*/
+    align-items: center; /*Acomoda los elementos en el eje contrario*/
+    justify-content: center; /*Acomoda los elementos en la misma dirección del flex*/
+    padding: 10px 0;
+}
+
+/*estilos del carrito*/
+
+/* Contenedor principal en dos columnas  */
+.carrito-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 partes para productos, 1 para el resumen */
+    gap: 20px;
+    align-items: start;
+    background-color: #f9fafb; /* Fondo gris claro sutil como la imagen */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.productos-carrito h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+/* Tarjeta de cada producto */
+.producto-card {
+    display: flex;
+    background-color: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.prod-img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.prod-detalles {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.prod-detalles h3 {
+    font-size: 16px;
+    margin: 0 0 5px 0;
+    color: #111827;
+}
+
+.prod-detalles .sku {
+    font-size: 12px;
+    color: #9CA3AF; /* Gris para el SKU */
+    margin: 0 0 10px 0;
+}
+
+.prod-detalles .precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1E3A8A; /* Azul idéntico a tu header */
+}
+
+/* Acciones: Botón eliminar y Contador */
+.prod-acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 25px;
+}
+
+.btn-eliminar {
+    background: none !important;
+    border: none !important;
+    cursor: pointer;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+}
+
+/* AQUÍ CONTROLAS EL TAMAÑO DE LA BASURA */
+.btn-eliminar img {
+    width: 14px;        /* Reducido de 18px a 14px */
+    height: 14px;       /* Reducido de 18px a 14px */
+    opacity: 0.6;       /* Se ve un poco gris opaco por defecto */
+    transition: opacity 0.2s;
+}
+
+.btn-eliminar img:hover {
+    opacity: 1;         /* Se ilumina por completo al pasar el mouse */
+}
+
+/* Contador de cantidad (- 1 +) */
+.contador-cantidad {
+    display: flex;
+    align-items: center;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #F9FAFB;
+}
+
+.contador-cantidad button {
+    background: none !important;
+    border: none !important;
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 16px;
+    cursor: pointer;
+    color: #6B7280;
+    margin: 0 !important;
+}
+
+.contador-cantidad button:hover {
+    background-color: #E5E7EB !important;
+    color: black !important;
+}
+
+.contador-cantidad input {
+    width: 30px;
+    text-align: center;
+    border: none;
+    background: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* CUADRO DERECHO: Resumen de Pedido */
+.resumen-pedido {
+    background-color: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.resumen-pedido h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #111827;
+}
+
+.resumen-pedido hr {
+    border: 0;
+    border-top: 1px solid #E5E7EB;
+    margin: 15px 0;
+}
+
+.resumen-linea {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #4B5563;
+}
+
+.resumen-linea strong {
+    color: #111827;
+}
+
+.resumen-linea.total {
+    font-size: 16px;
+    font-weight: bold;
+    color: #111827;
+}
+
+.btn-proceder {
+    width: 100%;
+    background-color: #1E3A8A;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.btn-proceder:hover {
+    background-color: #152a66;
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 768px) {
+    .carrito-container {
+        grid-template-columns: 1fr;
+    }
+}
