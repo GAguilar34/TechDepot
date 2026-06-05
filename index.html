@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +7,17 @@
     <link rel="stylesheet" href="CSS/stylosCard.css">
     <title>TechDepot</title>
 </head>
-
 <body>
-
     <header class="Encabezado">
-        <img id="logo" src="images/logo.png">
-
+        <img id="logo" src="images/logo.png" onclick="window.location.href='index.html'" style="cursor:pointer;">
         <div class="contentSearch">
             <img id="searchImg" src="images/busqueda.png">
             <input id="search" placeholder="Buscar">
         </div>
-
         <div class="contentUser">
             <img id="cuenta" src="images/cuenta.png">
             <button id="btnIncioSesion">Iniciar Sesion/Registrarse</button>
         </div>
-
         <div class="contentShopping">
             <img id="carritoImg" src="images/carrito.png">
             <button id="btnCarrito">Carrito</button>
@@ -36,32 +30,26 @@
                 <img id="homeImg" src="images/home.png">
                 <button id="home">Inicio</button>
             </div>
-
             <div class="menu-item">
                 <img id="carritoImg" src="images/carrito2.png">
                 <button id="btnCarrito2">Carrito</button>
             </div>
-
             <div class="menu-item">
                 <img id="sellImg" src="images/sell.png">
                 <button id="btnSell">Ventas</button>
             </div>
-
             <div class="menu-item">
                 <img id="favoriteImg" src="images/favorite.png">
                 <button id="btnFavorite">Favoritos</button>
             </div>
-
             <div class="menu-item">
                 <img id="comprasImg" src="images/compras.png">
                 <button id="btnCompras">Mis Compras</button>
             </div>
-
             <div class="menu-item">
                 <img id="agregarProducto" src="images/AgregarProducto.png">
                 <button id="btnAgregarProducto">Agregar Producto</button>
             </div>
-
             <div class="menu-item">
                 <img id="cerrarSesion" src="images/cerrarSesion.png">
                 <button id="btnCerraSesion">Cerrar Sesion</button>
@@ -69,27 +57,17 @@
         </aside>
 
         <section class="contenidoPrincipal">
-            <div id="filtrosCategorias">
-                <!-- Los botones se generan de forma automatica -->
-            </div>
-            <div id="productosGrid">
-                <!-- Los productos se van cargando conforme se agregan -->
-            </div>
+            <div id="filtrosCategorias"></div>
+            <div id="productosGrid"></div>
         </section>
-
     </div>
 
     <footer>
         <p>&copy; Derechos Reservados a TechDepot</p>
-        <p>&copy; Jose Gerardo Aguilar Sanchez</p>
-        <p>&copy; Dylan Uziel Guzman Pantoja</p>
-        <p>&copy; Andres Maximiliano Arellano Mendoza</p>
-        <p>&copy; William Francisco Acosta Pasual</p>
     </footer>
+
     <script src="js/api.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
-    <script> verificarSesion();</script>
 </body>
-
 </html>
