@@ -1,130 +1,279 @@
-body{
-    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
-    flex-direction: column; /*Acomoda los elementos en forma de columna*/
-    background-color: white;/*Modifica el color que esta alrededor de los componentes*/
-    font-family: Arial, Helvetica, sans-serif; /*Modifica el tipo de letra*/
-    color: black; /*Modifica el color de los textos*/
-    padding: 0px; /*Agrega un margen interno*/
-    margin: 0px; /*Agrega un margen entre los componentes*/
-    min-height: 100vh;/* El body ocupa al menos toda la pantalla */
+/*Estilos generales de la pagina*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header{
-    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
-    background-color:#1E3A8A; /*Modifica el color que esta alrededor de los componentes*/
-    color: white; /*Modifica el color de los textos*/
-    align-items: center; /*Acomoda los elementos en el eje contrario*/
-    justify-content: space-between; /*Acomoda los elementos en la misma dirección del flex*/
+body {
+    background-color: #F3F4F6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1F2937;
+    min-height: 100vh;
 }
 
-#logo{
-    order: 1; /*Ordena que elemento va primero*/
-    width: 200px; /*Modifica el ancho*/
-    height: 100px;/*Modifica el alto*/
-    margin-left: 10px; /*Agrega un margen de separacion a la izquierda*/
+/*Header*/
+.Encabezado {
+    background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.contentSearch{
-    order: 2; /*Ordena que elemento va primero*/
-    align-items: center; /*Acomoda los elementos en el eje contrario*/
-    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
-    gap:10px;
+#logo {
+    height: 45px;
+    width: auto;
+    filter: brightness(0) invert(1);
 }
 
-#search{
-    height: 20px;/*Modifica el ancho*/
-    width: 400px;/*Modifica el alto*/
+.contentSearch {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 25px;
+    padding: 8px 20px;
+    flex: 0 1 400px;
+    margin: 0 20px;
 }
 
-.contentUser{
-    order: 3;/*Ordena que elemento va primero*/
-    align-items: center; /*Acomoda los elementos en el eje contrario*/
-    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
-    gap:10px; /*Agregamos una separacion entre componentes*/
+#searchImg {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    opacity: 0.5;
 }
 
-#cuenta{
-    width: 50px; /*Modifica el ancho*/
-    height: 50px; /*Modifica el alto*/
+#search {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    color: #374151;
 }
 
-#btnIncioSesion{
-    background: none; /*Eliminamos cualquier color que rodee nuestro elemento*/
-    color: white; /*Modifica el color de los textos*/
-    font-weight: bold; /*Pone en negritas los textos*/
-    border: none; /*Eliminamos cualquier borde*/
-    cursor: pointer; /*Cambiamos el icono del cursor*/
-    text-decoration: underline; /*Dibujamos una linea debajo del boton*/
+#search::placeholder {
+    color: #9CA3AF;
 }
 
-.contentShopping{
-    order: 4;/*Ordena que elemento va primero*/
-    align-items: center; /*Acomoda los elementos en el eje contrario*/
-    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
-    gap:10px; /*Agregamos una separacion entre componentes*/
-    margin-right: 10px; /*Agregamos un margen de separacion del lado derecho*/
+.contentUser, .contentShopping {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-#btnCarrito{
-    background: none; /*Eliminamos cualquier color que rodee nuestro elemento*/
-    color: white; /*Modifica el color de los textos*/
-    font-weight: bold; /*Pone en negritas los textos*/
-    border: none; /*Eliminamos cualquier borde*/
-    cursor: pointer; /*Cambiamos el icono del cursor*/
+.contentUser img, .contentShopping img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
 }
 
-.main-container{
-    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
-    flex:1;/*Ocupa el resto del espacio*/
+/* Email del usuario */
+#usuarioActivo {
+    color: white !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 200px !important;
 }
 
-.Menu{
-    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
-    flex-direction: column; /*Acomoda los elementos en forma de columna*/
-    align-items: flex-start; /*Acomoda los elementos en el eje contrario*/
-    border-right: 1px solid #E5E7EB; /*línea gris clara */
-    padding-right: 10px; /* espacio para que no quede pegado */
+#btnIncioSesion {
+    background: white;
+    color: #1E3A8A;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.3s ease;
 }
 
-.Menu button{
-    background: none; /*Eliminamos cualquier color que rodee nuestro elemento*/
-    color: black; /*Modifica el color de los textos*/
-    border: none; /*Eliminamos cualquier borde*/
-    cursor: pointer; /*Cambiamos el icono del cursor*/ 
+#btnIncioSesion:hover {
+    background: #EFF6FF;
+    transform: translateY(-1px);
 }
 
-#contentCategorias{
-    display: flex; /*Sirve para que todos los componentes se adapten a cualquier tamaño y posicion*/
-    flex-direction: column; /*Acomoda los elementos en forma de columna*/
-    gap:10px; /*Agregamos una separacion entre componentes*/
-}
-
-.contenidoPrincipal{
-    flex: 1; /*Ocupa el resto del espacio*/
-    padding: 20px; /*Agrega un margen interno*/
-}
-
-.contenidoPrincipal button{
-    background-color: white; /*Modificamos el color alrededor de nuestros componentes*/
-    color: black;  /*Modifica el color de los textos*/
-    cursor: pointer; /*Cambiamos el icono del cursor*/ 
-    border: 1px solid #E5E7EB; /*Modificamos el color del borde que rodea nuestro boton*/
-    border-radius: 10px; /*Modificamos el borde y lo volvemos redondeado*/
-    width: 120px; /*Modifica el ancho*/
-    height: 30px; /*Modifica el alto*/
-    margin-right: 10px; /*Agregamos un margen de separacion del lado derecho*/
-}
-
-.contenidoPrincipal button:hover{
-    background-color: #1E3A8A;
+#btnCarrito {
+    background: transparent;
     color: white;
+    border: 2px solid white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.3s ease;
 }
 
-footer{
-    margin-top: auto; /* Se empuja hasta abajo automáticamente */
-    background-color:#1E3A8A;  /*Modifica el color que esta alrededor de los componentes*/
-    color:white; /*Modifica el color de los textos*/
-    text-align: center; /*Alinea el texto al centro*/
-    align-items: center; /*Acomoda los elementos en el eje contrario*/
-    justify-content: center; /*Acomoda los elementos en la misma dirección del flex*/
+#btnCarrito:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/*Layout principal*/
+.main-container {
+    display: flex;
+    min-height: calc(100vh - 70px);
+}
+
+/*Menu lateral*/
+.Menu {
+    background: white;
+    width: 250px;
+    min-width: 250px;
+    padding: 20px 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    gap: 12px;
+}
+
+.menu-item:hover {
+    background: #F3F4F6;
+    border-left: 3px solid #1E3A8A;
+}
+
+.menu-item img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+}
+
+.menu-item button {
+    background: none;
+    border: none;
+    color: #374151;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+}
+
+.menu-item button:hover {
+    color: #1E3A8A;
+    font-weight: 600;
+}
+
+#contentCategorias {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+#contentCategorias h3 {
+    color: #1E3A8A;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#contentCategorias button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    margin: 3px 0;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 13px;
+    color: #374151;
+    transition: all 0.2s ease;
+}
+
+#contentCategorias button:hover {
+    background: #EFF6FF;
+    border-color: #1E3A8A;
+    color: #1E3A8A;
+}
+
+/*Contenido principal*/
+.contenidoPrincipal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #F9FAFB;
+}
+
+/*Filtros por categorias*/
+#filtrosCategorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 15px 20px;
+    background: white;
+    border-bottom: 2px solid #E5E7EB;
+    position: sticky;
+    top: 70px;
+    z-index: 99;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#filtrosCategorias button {
+    padding: 8px 16px;
+    border: 2px solid #E5E7EB;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-align: center;
+    background: #F3F4F6;
+    color: #374151;
+    flex: 0 0 auto;
+}
+
+#filtrosCategorias button:hover {
+    background: #E5E7EB;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#filtrosCategorias button.active {
+    background: #1E3A8A;
+    color: white;
+    font-weight: bold;
+    border-color: #1E3A8A;
+}
+
+/*Grid de productos*/
+#productosGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+/*footer*/
+footer {
+    background: #1F2937;
+    color: #9CA3AF;
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+}
+
+footer p {
+    margin: 3px 0;
 }

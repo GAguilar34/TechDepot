@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/stylos.css">
+    <link rel="stylesheet" href="CSS/stylosCard.css">
     <title>TechDepot</title>
 </head>
 
@@ -33,7 +34,7 @@
         <aside class="Menu">
             <div class="menu-item">
                 <img id="homeImg" src="images/home.png">
-                <button id="home">Incio</button>
+                <button id="home">Inicio</button>
             </div>
 
             <div class="menu-item">
@@ -56,43 +57,26 @@
                 <button id="btnCompras">Mis Compras</button>
             </div>
 
-            <div class = "menu-item">
-                <img id = "agregarProducto" src="images/AgregarProducto.png">
+            <div class="menu-item">
+                <img id="agregarProducto" src="images/AgregarProducto.png">
                 <button id="btnAgregarProducto">Agregar Producto</button>
             </div>
 
-            <div class = "menu-item">
-                <img id = "cerrarSesion" src = "images/cerrarSesion.png">
+            <div class="menu-item">
+                <img id="cerrarSesion" src="images/cerrarSesion.png">
                 <button id="btnCerraSesion">Cerrar Sesion</button>
-            </div>
-
-            <div id="contentCategorias">
-                <h3>Categorias</h2>
-                    <button>Procesadores</button>
-                    <button>Tarjetas Graficas</button>
-                    <button>Placas Madre</button>
-                    <button>Memoria Ram</button>
-                    <button>Almacenamiento</button>
-                    <button>Fuentes de Poder</button>
-                    <button>Refrigeracion</button>
-                    <button>Gabinetes</button>
-                    <button>Ventiladores</button>
-                    <button>Perifericos</button>
             </div>
         </aside>
 
         <section class="contenidoPrincipal">
-            <button>Procesadores</button>
-            <button>Tarjetas Graficas</button>
-            <button>Placas Madre</button>
-            <button>Memoria Ram</button>
-            <button>Almacenamiento</button>
-            <button>Fuentes de Poder</button>
-            <button>Refrigeracion</button>
-            <button>Gabinetes</button>
-            <button>Ventiladores</button>
-            <button>Perifericos</button>
+            <div id="filtrosCategorias">
+                <!-- Los botones se generan de forma automatica -->
+            </div>
+            <div id="productosGrid">
+                <!-- Los productos se van cargando conforme se agregan -->
+            </div>
         </section>
+
     </div>
 
     <footer>
