@@ -129,7 +129,7 @@ function mostrarProductos(productos) {
     productos.forEach(producto => {
         const imagenUrl = (producto.imageUrls && producto.imageUrls.length > 0)
             ? producto.imageUrls[0]
-            : 'images/logo.png';
+            : (producto.imageUrl || 'images/logo.png');
 
         const card = document.createElement('div');
         card.className = 'producto-card';

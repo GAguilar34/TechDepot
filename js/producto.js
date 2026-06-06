@@ -11,7 +11,7 @@ let imagenActual = 0;
 async function cargarProductoDetalle() {
     const productId = getProductId();
     const contenedor = document.getElementById('productoDetalle');
-    
+
     if (!productId) {
         contenedor.innerHTML = '<p class="error-message">❌ Producto no encontrado</p>';
         return;
@@ -37,11 +37,16 @@ async function cargarProductoDetalle() {
 // Mostrar producto en detalle
 function mostrarProductoDetalle(producto) {
     const contenedor = document.getElementById('productoDetalle');
-    
-    // Asegurar que haya imágenes
-    const imagenes = (producto.imageUrls && producto.imageUrls.length > 0) 
-        ? producto.imageUrls 
-        : ['images/logo.png'];
+
+    // Asegurar que haya imágenes (el backend a veces manda imageUrl singular)
+    let imagenes;
+    if (producto.imageUrls && producto.imageUrls.length > 0) {
+        imagenes = producto.imageUrls;
+    } else if (producto.imageUrl) {
+        imagenes = [producto.imageUrl];
+    } else {
+        imagenes = ['images/logo.png'];
+    }
 
     contenedor.innerHTML = `
         <button onclick="window.location.href='index.html'" class="btn-regresar">← Volver a productos</button>
@@ -49,18 +54,18 @@ function mostrarProductoDetalle(producto) {
         <div class="producto-detalle-grid">
             <!-- Galería de imágenes -->
             <div class="galeria-imagenes">
-                <div class="imagen-principal" id="imagenPrincipal">
+                <div class="imagen-principal ${imagenes.length === 1 ? 'imagen-unica' : ''}" id="imagenPrincipal">
                     <img src="${imagenes[0]}" alt="${producto.nameProduct}" 
                          onerror="this.src='images/logo.png'">
                 </div>
                 <div class="miniaturas" id="miniaturas">
-                    ${imagenes.map((img, index) => `
+                    ${imagenes.length > 1 ? imagenes.map((img, index) => `
                         <div class="miniatura ${index === 0 ? 'active' : ''}" 
                              onclick="cambiarImagen(${index}, '${img.replace(/'/g, "\\'")}')">
                             <img src="${img}" alt="Imagen ${index + 1}" 
                                  onerror="this.src='images/logo.png'">
                         </div>
-                    `).join('')}
+                    `).join('') : ''}
                 </div>
             </div>
 
@@ -76,9 +81,9 @@ function mostrarProductoDetalle(producto) {
                 
                 <p class="precio-grande">$${producto.price.toFixed(2)}</p>
                 
-                <p class="stock-info ${producto.amount > 0 ? 'stock-disponible' : 'stock-agotado'}">
-                    ${producto.amount > 0 
-                        ? `✅ ${producto.amount} unidades disponibles` 
+                <p class="${producto.amount > 0 ? 'stock-disponible' : 'stock-agotado'}">
+                    ${producto.amount > 0
+                        ? `✅ ${producto.amount} unidades disponibles`
                         : '❌ Producto agotado'}
                 </p>
 
@@ -105,10 +110,10 @@ function mostrarProductoDetalle(producto) {
 // Cambiar imagen principal
 function cambiarImagen(index, url) {
     imagenActual = index;
-    
+
     // Actualizar imagen principal
     document.querySelector('#imagenPrincipal img').src = url;
-    
+
     // Actualizar miniatura activa
     document.querySelectorAll('.miniatura').forEach((mini, i) => {
         mini.classList.toggle('active', i === index);
@@ -130,7 +135,7 @@ function agregarAlCarrito(productId) {
     const imagen = document.querySelector('#imagenPrincipal img').src;
 
     let carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
-    
+
     // Verificar si ya existe
     const existe = carrito.find(p => p.id === productId);
     if (existe) {
@@ -159,7 +164,7 @@ function agregarAFavoritos(productId) {
     }
 
     let favoritos = JSON.parse(sessionStorage.getItem('favoritos')) || [];
-    
+
     if (!favoritos.includes(productId)) {
         favoritos.push(productId);
         sessionStorage.setItem('favoritos', JSON.stringify(favoritos));
