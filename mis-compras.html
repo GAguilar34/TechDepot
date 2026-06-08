@@ -1,11 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/mis-compras.css">
     <title>Mis compras</title>
 </head>
+
 <body>
-    
+
+    <header class="Encabezado">
+        <img id="logo" src="images/logo.png">
+    </header>
+
+
+    <div class="main-container">
+        <aside class="Menu">
+            <div class="menu-item">
+                <img id="homeImg" src="images/home.png">
+                <button id="home">Inicio</button>
+            </div>
+            <div class="menu-item">
+                <img id="carritoImg" src="images/carrito2.png">
+                <button id="btnCarrito2">Carrito</button>
+            </div>
+            <div class="menu-item">
+                <img id="sellImg" src="images/sell.png">
+                <button id="btnSell">Ventas</button>
+            </div>
+            <div class="menu-item">
+                <img id="favoriteImg" src="images/favorite.png">
+                <button id="btnFavorite">Favoritos</button>
+            </div>
+            <div class="menu-item">
+                <img id="comprasImg" src="images/compras.png">
+                <button id="btnCompras">Mis Compras</button>
+            </div>
+            <div class="menu-item">
+                <img id="agregarProducto" src="images/AgregarProducto.png">
+                <button id="btnAgregarProducto">Agregar Producto</button>
+            </div>
+            <div class="menu-item">
+                <img id="cerrarSesion" src="images/cerrarSesion.png">
+                <button id="btnCerraSesion">Cerrar Sesion</button>
+            </div>
+        </aside>
+
+        <section class="contenidoPrincipal">
+            <div id="filtrosCategorias"></div>
+            <div id="productosGrid"></div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; Derechos Reservados a TechDepot</p>
+        <p>&copy; Jose Gerardo Aguilar Sanchez</p>
+        <p>&copy; Dylan Uziel Guzman Pantoja</p>
+        <p>&copy; Andres Maximiliano Arellano Mendoza</p>
+        <p>&copy; William Francisco Acosta Pasual</p>
+    </footer>
+    <script>
+        //Obtenemos el cliente y guardamos sus datos de forma temporal
+        function getCurrentCustomer() {
+            const storedCustomer = sessionStorage.getItem('customer');
+            if (!storedCustomer) return null;
+            try {
+                return JSON.parse(storedCustomer);
+            } catch {
+                sessionStorage.removeItem('customer');
+                return null;
+            }
+        }
+
+        //Verificamos si es un vendedor o cliente
+        function isSeller(customer) {
+            return customer && customer.userType === 'VENDEDOR';
+        }
+
+        function setupNavigation(customer) {
+            const navegacion = {
+                'home': 'index.html',
+                'btnCarrito': 'carrito.html',
+                'btnCarrito2': 'carrito.html',
+                'btnSell': 'ventas.html',
+                'btnFavorite': 'favoritos.html',
+                'btnCompras': 'mis-compras.html',
+                'btnAgregarProducto': 'agregarProducto.html'
+            };
+
+            // Configurar botones de navegación
+            Object.entries(navegacion).forEach(([id, url]) => {
+                const btn = document.getElementById(id);
+                if (btn) {
+                    btn.onclick = () => window.location.href = url;
+                }
+            });
+
+            // Cerrar sesión
+            const btnCerrarSesion = document.getElementById('btnCerraSesion');
+            if (btnCerrarSesion) {
+                btnCerrarSesion.onclick = () => {
+                    sessionStorage.removeItem('customer');
+                    window.location.href = 'login.html';
+                };
+            }
+
+            // Ocultar opciones de vendedor si no lo es
+            if (!isSeller(customer)) {
+                const sellMenuItem = document.getElementById('btnSell')?.closest('.menu-item');
+                const agregarMenu = document.getElementById('btnAgregarProducto')?.closest('.menu-item');
+                if (sellMenuItem) sellMenuItem.style.display = 'none';
+                if (agregarMenu) agregarMenu.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const customer = getCurrentCustomer(); // 1. Obtenemos el cliente
+            setupNavigation(customer);             // 2. Activamos los botones
+        });
+    </script>
 </body>
+
 </html>

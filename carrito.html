@@ -12,135 +12,45 @@
 
     <header class="Encabezado">
         <img id="logo" src="images/logo.png">
-
-        <div class="contentSearch">
-            <img id="searchImg" src="images/busqueda.png">
-            <input id="search" placeholder="Buscar">
-        </div>
-
-        <div class="contentUser">
-            <img id="cuenta" src="images/cuenta.png">
-            <button id="btnIncioSesion">Iniciar Sesion/Registrarse</button>
-        </div>
-
-        <div class="contentShopping">
-            <img id="carritoImg" src="images/home.png">
-            <button id="btnCarrito">Inicio</button>
-        </div>
     </header>
+
 
     <div class="main-container">
         <aside class="Menu">
-            <div id="menu-item">
+            <div class="menu-item">
                 <img id="homeImg" src="images/home.png">
-                <button id="home">Incio</button>
+                <button id="home">Inicio</button>
             </div>
-
-            <div id="menu-item">
+            <div class="menu-item">
                 <img id="carritoImg" src="images/carrito2.png">
                 <button id="btnCarrito2">Carrito</button>
             </div>
-
-            <div id="menu-item">
+            <div class="menu-item">
                 <img id="sellImg" src="images/sell.png">
                 <button id="btnSell">Ventas</button>
             </div>
-
-            <div id="menu-item">
+            <div class="menu-item">
                 <img id="favoriteImg" src="images/favorite.png">
                 <button id="btnFavorite">Favoritos</button>
             </div>
-
-            <div id="menu-item">
+            <div class="menu-item">
                 <img id="comprasImg" src="images/compras.png">
                 <button id="btnCompras">Mis Compras</button>
             </div>
-
+            <div class="menu-item">
+                <img id="agregarProducto" src="images/AgregarProducto.png">
+                <button id="btnAgregarProducto">Agregar Producto</button>
+            </div>
+            <div class="menu-item">
+                <img id="cerrarSesion" src="images/cerrarSesion.png">
+                <button id="btnCerraSesion">Cerrar Sesion</button>
+            </div>
         </aside>
 
         <section class="contenidoPrincipal">
-    <div class="carrito-container">
-        
-        <div class="productos-carrito">
-            <h2>Mi Carrito</h2>
-
-            
-            <div class="producto-card">
-                <img src="images/ryzen5.png" alt="" class="prod-img">
-                <div class="prod-detalles">
-                    <h3>nombre del producto</h3>
-                    <p class="sku">sku:</p>
-                    <span class="precio">Precio:</span>
-                </div>
-                <div class="prod-acciones">
-                    <button class="btn-eliminar"><img src="images/basura.png" alt="Eliminar"></button>
-                    <div class="contador-cantidad">
-                        <button>-</button>
-                        <input type="text" value="1" readonly>
-                        <button>+</button>
-                    </div>
-                </div>
-            </div>
-
-            <!--inicio del carrito-->
-            <div class="producto-card">
-                <img src="images/ryzen5.png" alt="" class="prod-img">
-                <div class="prod-detalles">
-                    <h3>Nombre del producto</h3>
-                    <p class="sku">sku:</p>
-                    <span class="precio">precio:</span>
-                </div>
-                <div class="prod-acciones">
-                    <button class="btn-eliminar"><img src="images/basura.png" alt="Eliminar"></button>
-                    <div class="contador-cantidad">
-                        <button>-</button>
-                        <input type="text" value="1" readonly>
-                        <button>+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto-card">
-                <img src="images/ram.png" alt="" class="prod-img">
-                <div class="prod-detalles">
-                    <h3>Nombre del producto</h3>
-                    <p class="sku">sku:</p>
-                    <span class="precio">precio:</span>
-                </div>
-                <div class="prod-acciones">
-                    <button class="btn-eliminar"><img src="images/basura.png" alt="Eliminar"></button>
-                    <div class="contador-cantidad">
-                        <button>-</button>
-                        <input type="text" value="1" readonly>
-                        <button>+</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-         <!--inicio del resumen-->
-        <div class="resumen-pedido">
-            <h3>Resumen del pedido</h3>
-            <hr>
-            <div class="resumen-linea">
-                <span>Subtotal</span>
-                <strong></strong>
-            </div>
-            <div class="resumen-linea">
-                <span>Envío</span>
-                <strong>$</strong>
-            </div>
-            <hr>
-            <div class="resumen-linea total">
-                <span>Total</span>
-                <strong></strong>
-            </div>
-            <button class="btn-proceder">Proceder pago</button>
-        </div>
-
-    </div>
-</section>
+            <div id="filtrosCategorias"></div>
+            <div id="productosGrid"></div>
+        </section>
     </div>
 
     <footer>
@@ -150,7 +60,66 @@
         <p>&copy; Andres Maximiliano Arellano Mendoza</p>
         <p>&copy; William Francisco Acosta Pasual</p>
     </footer>
+    <script>
+        //Obtenemos el cliente y guardamos sus datos de forma temporal
+        function getCurrentCustomer() {
+            const storedCustomer = sessionStorage.getItem('customer');
+            if (!storedCustomer) return null;
+            try {
+                return JSON.parse(storedCustomer);
+            } catch {
+                sessionStorage.removeItem('customer');
+                return null;
+            }
+        }
 
+        //Verificamos si es un vendedor o cliente
+        function isSeller(customer) {
+            return customer && customer.userType === 'VENDEDOR';
+        }
+
+        function setupNavigation(customer) {
+            const navegacion = {
+                'home': 'index.html',
+                'btnCarrito': 'carrito.html',
+                'btnCarrito2': 'carrito.html',
+                'btnSell': 'ventas.html',
+                'btnFavorite': 'favoritos.html',
+                'btnCompras': 'mis-compras.html',
+                'btnAgregarProducto': 'agregarProducto.html'
+            };
+
+            // Configurar botones de navegación
+            Object.entries(navegacion).forEach(([id, url]) => {
+                const btn = document.getElementById(id);
+                if (btn) {
+                    btn.onclick = () => window.location.href = url;
+                }
+            });
+
+            // Cerrar sesión
+            const btnCerrarSesion = document.getElementById('btnCerraSesion');
+            if (btnCerrarSesion) {
+                btnCerrarSesion.onclick = () => {
+                    sessionStorage.removeItem('customer');
+                    window.location.href = 'login.html';
+                };
+            }
+
+            // Ocultar opciones de vendedor si no lo es
+            if (!isSeller(customer)) {
+                const sellMenuItem = document.getElementById('btnSell')?.closest('.menu-item');
+                const agregarMenu = document.getElementById('btnAgregarProducto')?.closest('.menu-item');
+                if (sellMenuItem) sellMenuItem.style.display = 'none';
+                if (agregarMenu) agregarMenu.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const customer = getCurrentCustomer(); // 1. Obtenemos el cliente
+            setupNavigation(customer);             // 2. Activamos los botones
+        });
+    </script>
 </body>
 
 </html>
