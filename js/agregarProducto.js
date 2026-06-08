@@ -260,14 +260,20 @@ document.getElementById('formProduct').addEventListener('submit', async function
             body: JSON.stringify(product)
         });
 
+        // Revisar si la respuesta falló
+        if (!res.ok) {
+            // Extraer el mensaje de error real del backend
+            const errorData = await res.json().catch(() => ({})); 
+            console.error("Detalles del Error 400 del Backend:", errorData);
+            throw new Error(errorData.message || JSON.stringify(errorData) || 'Error 400: Revisa la consola para más detalles');
+        }
+
         if (res.status === 201 || res.status === 200) {
             mostrarExito();
             document.getElementById('formProduct').reset();
             archivosSeleccionados = [];
             renderPreviews();
             setTimeout(() => window.location.href = 'index.html', 1500);
-        } else {
-            throw new Error('Error del servidor');
         }
 
     } catch (error) {
